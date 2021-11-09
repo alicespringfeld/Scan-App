@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --color-primary: #1b5240;
+  --color-secondary: #c1e0d2;
+  --color-background: #f4f3e8;
+  --color-text: #00382b;
+  --color-button: #77ad9e;
+
+  /* Fonts */
+  --font-text: 'Hind', sans-serif;
+  --font-headline: 'Arima Madurai', cursive;
+  --border-radius: 15px;
+}
+
 body {
   margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-text);
+}
+
+input {
+  border: var(--border-radius);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-headline);
 }
