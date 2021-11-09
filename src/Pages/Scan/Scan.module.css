@@ -1,0 +1,66 @@
+.container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  background: var(--color-primary);
+  height: 6rem;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 2em;
+  gap: 2rem;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  /*  display: grid;
+  gap: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  height: 100vh;
+  padding: 4rem 2rem; */
+}
+
+.header {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.scan {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border: 8;
+  border-color: var(--color-secondary);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.cancelButton {
+  color: var(--color-secondary);
+}
+
+.preview {
+  overflow: hidden;
+  object-fit: contain;
+}

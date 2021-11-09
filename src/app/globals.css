@@ -22,10 +22,12 @@
 }
 
 body {
-  margin: 0;
+  grid-template-rows: 1fr 1fr;
+  margin: 2rem;
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-text);
+  height: 100%;
 }
 
 input {
