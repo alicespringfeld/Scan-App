@@ -13,7 +13,6 @@
   opacity: 0%;
 }
 
-.header {
-  padding: 2rem;
-  text-align: center;
+.cameraIcon {
+  align-self: baseline;
 }

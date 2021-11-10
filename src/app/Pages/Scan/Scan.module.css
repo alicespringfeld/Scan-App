@@ -14,16 +14,13 @@
   position: fixed;
   left: 0;
   bottom: 0;
+}
 
-  /*  display: grid;
-  gap: 1rem;
-  width: 80%;
-  margin: 0 auto;
-  justify-items: center;
-  align-content: center;
-  text-align: center;
+.mainContainer {
+  display: grid;
+  place-items: center;
   height: 100vh;
-  padding: 4rem 2rem; */
+  grid-template-rows: 2fr 3fr;
 }
 
 .header {
@@ -56,11 +53,13 @@ a:active {
   text-decoration: none;
 }
 
-.cancelButton {
+.cancel {
   color: var(--color-secondary);
+  text-transform: uppercase;
 }
 
 .preview {
   overflow: hidden;
   object-fit: contain;
+  width: 400px;
 }

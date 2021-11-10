@@ -7,21 +7,21 @@ function Scan() {
   const [imageURL, setImageURL] = useState<string | null>(null);
 
   return (
-    <div>
-      <h1 className={styles.header}>ScanApp</h1>
+    <div className={styles.mainContainer}>
       {imageURL ? (
         <img src={imageURL} className={styles.preview} />
       ) : (
-        <PhotoCameraIcon />
+        <>
+          <h1 className={styles.header}>ScanApp</h1>
+          <PhotoCameraIcon />
+        </>
       )}
       <div className={styles.container}>
-        <a href="#" className={styles.cancelButton}>
-          CANCEL
+        <a href="#" className={styles.cancel}>
+          Cancel
         </a>
         <button className={styles.scan} disabled={imageURL === null}></button>
-        <div>
-          <ImageInput onUpload={setImageURL} />
-        </div>
+        <ImageInput onUpload={setImageURL} />
       </div>
     </div>
   );

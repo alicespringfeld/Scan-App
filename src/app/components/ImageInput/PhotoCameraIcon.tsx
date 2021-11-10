@@ -3,7 +3,7 @@ import styles from './ImageInput.module.css';
 
 function PhotoCameraIcon() {
   return (
-    <div className={styles.header}>
+    <div className={styles.cameraIcon}>
       <svg
         width="121"
         height="96"
