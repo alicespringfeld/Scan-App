@@ -19,7 +19,7 @@ function ImageInput({ onUpload }: ImageInputProps) {
     <label className={styles.importButton}>
       Import
       <input
-        className={'input'}
+        className={'styles.input'}
         style={{ visibility: 'hidden' }}
         type="file"
         accept="image/*"

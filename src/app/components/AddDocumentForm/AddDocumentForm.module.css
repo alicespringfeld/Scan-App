@@ -1,4 +1,4 @@
-.documentForm {
+.titleInput {
   border-radius: var(--border-radius);
   background-color: var(--color-secondary);
   font-family: var(--font-text);
@@ -14,7 +14,7 @@
   color: var(--color-primary);
 }
 
-form {
+.documentForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.3rem;

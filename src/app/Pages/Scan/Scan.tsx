@@ -13,7 +13,7 @@ function Scan(): JSX.Element {
   let content;
 
   if (text) {
-    content = <p>{text}</p>;
+    content = <p className={styles.recognizedText}>{text}</p>;
   } else if (imageURL) {
     content = <img src={imageURL} className={styles.preview} />;
   } else {

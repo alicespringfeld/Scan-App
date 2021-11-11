@@ -23,9 +23,9 @@ function AddDocumentForm({ text }: AddDocumentFormProps): JSX.Element {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.documentForm}>
       <input
-        className={styles.documentForm}
+        className={styles.titleInput}
         type="text"
         placeholder="Enter title"
         value={title}
