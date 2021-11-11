@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import styles from './AddDocumentForm.module.css';
+import usePostDocument from './UseDocument';
 
 type AddDocumentFormProps = {
   text: string;
@@ -8,19 +9,17 @@ type AddDocumentFormProps = {
 function AddDocumentForm({ text }: AddDocumentFormProps): JSX.Element {
   const [title, setTitle] = useState('');
 
-  const handleSubmit = (event: FormEvent) => {
+  const { isLoading, postDocument } = usePostDocument();
+
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const document = {
       title,
       text,
     };
-    fetch('https://json-server.machens.dev/docs', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(document),
-    });
+    await postDocument(document);
+
+    setTitle('');
   };
 
   return (
@@ -32,7 +31,12 @@ function AddDocumentForm({ text }: AddDocumentFormProps): JSX.Element {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <input className={styles.submitButton} type="submit" value="Save" />
+      <input
+        className={styles.submitButton}
+        type="submit"
+        value="Save"
+        disabled={!title || isLoading}
+      />
     </form>
   );
 }
