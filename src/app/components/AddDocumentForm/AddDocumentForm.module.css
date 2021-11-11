@@ -4,3 +4,18 @@
   font-family: var(--font-text);
   padding: 0.3rem;
 }
+
+.submitButton {
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background-color: var(--color-secondary);
+  font-family: var(--font-text);
+  padding: 0.1rem;
+  color: var(--color-primary);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+}

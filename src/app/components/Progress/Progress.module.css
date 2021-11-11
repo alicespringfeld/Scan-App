@@ -5,7 +5,7 @@
   color: var(--color-button);
 }
 
-.progressBar {
+progress {
   --webkit-appearance: none;
 
   appearance: none;
@@ -13,13 +13,13 @@
   height: 20px;
 }
 
-.progressBar::-webkit-progress-bar {
-  background-color: red;
+progress::-webkit-progress-bar {
+  background-color: var(--color-background);
   border-radius: var(--border-radius);
   border: solid var(--color-secondary) 1px;
 }
 
-.progressBar::-webkit-progress-value {
-  background-color: var(--color-primary);
+progress::-webkit-progress-value {
+  background-color: var(--color-secondary);
   border-radius: var(--border-radius);
 }

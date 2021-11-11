@@ -35,6 +35,7 @@
   height: 42px;
   border: 8;
   border-color: var(--color-secondary);
+  cursor: pointer;
 }
 
 a:link {

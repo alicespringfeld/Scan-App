@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import ImageInput from '../../components/ImageInput/ImageInput';
 import styles from './Scan.module.css';
 import PhotoCameraIcon from '../../components/ImageInput/PhotoCameraIcon';
-import { RecognizeProgress, recognizeText } from '../../utils/ocr';
 import Progress from '../../components/Progress/Progress';
 import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
+import useRecognizeText from '../../utils/useRecogniseText';
 
 function Scan(): JSX.Element {
   const [imageURL, setImageURL] = useState<string | null>(null);
-  const [recognizedText, setRecognizedText] = useState<string | null>(null);
-  const [recognizeProgress, setRecognizeProgress] =
-    useState<RecognizeProgress | null>(null);
+  const { text, progress, recognize } = useRecognizeText();
 
   let content;
 
-  if (recognizedText) {
-    content = <p>{recognizedText}</p>;
+  if (text) {
+    content = <p>{text}</p>;
   } else if (imageURL) {
     content = <img src={imageURL} className={styles.preview} />;
   } else {
@@ -35,24 +33,22 @@ function Scan(): JSX.Element {
         <a href="#" className={styles.cancel}>
           Cancel
         </a>
-        {recognizedText && <AddDocumentForm text={recognizedText} />}
+        {text && <AddDocumentForm text={text} />}
 
-        {!recognizedText && recognizeProgress && (
+        {!text && progress && (
           <Progress
-            progress={recognizeProgress.progress * 100}
-            status={recognizeProgress.status}
+            progress={progress.progress * 100}
+            status={progress.status}
           />
         )}
 
-        {!recognizeProgress && (
+        {!progress && (
           <button
             className={styles.scan}
             disabled={imageURL === null}
             onClick={() => {
               if (imageURL) {
-                recognizeText(imageURL, setRecognizeProgress).then(
-                  setRecognizedText
-                );
+                recognize(imageURL);
               }
             }}
           ></button>
