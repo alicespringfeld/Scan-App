@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import ImageInput from '../../components/ImageInput/ImageInput';
 import styles from './Scan.module.css';
 import PhotoCameraIcon from '../../components/ImageInput/PhotoCameraIcon';
-import Tesseract from 'tesseract.js';
+import { RecognizeProgress, recognizeText } from '../../utils/ocr';
+import Progress from '../../components/Progress/Progress';
+import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
 
-function Scan() {
+function Scan(): JSX.Element {
   const [imageURL, setImageURL] = useState<string | null>(null);
   const [recognizedText, setRecognizedText] = useState<string | null>(null);
+  const [recognizeProgress, setRecognizeProgress] =
+    useState<RecognizeProgress | null>(null);
 
   let content;
 
@@ -26,24 +30,33 @@ function Scan() {
   return (
     <div className={styles.mainContainer}>
       {content}
+
       <div className={styles.container}>
         <a href="#" className={styles.cancel}>
           Cancel
         </a>
-        <button
-          className={styles.scan}
-          disabled={imageURL === null}
-          onClick={() => {
-            if (imageURL) {
-              Tesseract.recognize(imageURL, 'eng', {
-                logger: (message) => console.log(message.progress),
-              }).then((result) => {
-                const text = result.data.text;
-                setRecognizedText(text);
-              });
-            }
-          }}
-        ></button>
+        {recognizedText && <AddDocumentForm text={recognizedText} />}
+
+        {!recognizedText && recognizeProgress && (
+          <Progress
+            progress={recognizeProgress.progress * 100}
+            status={recognizeProgress.status}
+          />
+        )}
+
+        {!recognizeProgress && (
+          <button
+            className={styles.scan}
+            disabled={imageURL === null}
+            onClick={() => {
+              if (imageURL) {
+                recognizeText(imageURL, setRecognizeProgress).then(
+                  setRecognizedText
+                );
+              }
+            }}
+          ></button>
+        )}
         <ImageInput onUpload={setImageURL} />
       </div>
     </div>

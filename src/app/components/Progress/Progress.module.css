@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  row-gap: 0.5rem;
+  justify-items: center;
+  color: var(--color-button);
+}
+
+.progressBar {
+  --webkit-appearance: none;
+
+  appearance: none;
+  width: 250px;
+  height: 20px;
+}
+
+.progressBar::-webkit-progress-bar {
+  background-color: red;
+  border-radius: var(--border-radius);
+  border: solid var(--color-secondary) 1px;
+}
+
+.progressBar::-webkit-progress-value {
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+}

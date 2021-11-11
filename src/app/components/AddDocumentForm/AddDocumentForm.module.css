@@ -1,0 +1,6 @@
+.documentForm {
+  border-radius: var(--border-radius);
+  background-color: var(--color-secondary);
+  font-family: var(--font-text);
+  padding: 0.3rem;
+}
