@@ -1,0 +1,18 @@
+.importButton {
+  cursor: pointer;
+  color: var(--color-secondary);
+  font-family: var(--font-text);
+  text-transform: uppercase;
+  display: flex;
+  width: 8rem;
+}
+
+.input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0%;
+}
+
+.cameraIcon {
+  align-self: baseline;
+}

@@ -1,0 +1,70 @@
+.container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  background: var(--color-primary);
+  height: 6rem;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 2em;
+  gap: 2rem;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.mainContainer {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  grid-template-rows: 2fr 3fr 1fr;
+}
+
+.header {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.scan {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border: 8;
+  border-color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.cancel {
+  color: var(--color-secondary);
+  text-transform: uppercase;
+}
+
+.cancel:link {
+  text-decoration: none;
+}
+
+.cancel:visited {
+  text-decoration: none;
+}
+
+.cancel:hover {
+  text-decoration: none;
+}
+
+.cancel:active {
+  text-decoration: none;
+}
+
+.preview {
+  overflow: hidden;
+  object-fit: contain;
+  width: 400px;
+}
+
+.recognizedText {
+  padding: 3rem;
+}
