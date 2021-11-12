@@ -1,16 +1,36 @@
-import React from 'react';
-import DocPreview, {
-  DocPreviewProps,
-} from '../../components/DocPreview/DocPreview';
+import React, { useEffect, useState } from 'react';
+import getDocument from './FetchDocuments';
 import styles from './FileBrowser.module.css';
 
-export default function FileBrowser({
-  text,
-  title,
-}: DocPreviewProps): JSX.Element {
+type Document = {
+  id: number;
+  title: string;
+  text: string;
+};
+
+export default function FileBrowser() {
+  const [documents, setDocuments] = useState<null | Document[]>(null);
+
+  useEffect(() => {
+    async function load() {
+      const newDocuments = await getDocument();
+      setDocuments(newDocuments);
+    }
+    load();
+  }, []);
+
   return (
-    <div className={styles.browserPage}>
-      <DocPreview text={text} title={title} />
-    </div>
+    <section>
+      {documents &&
+        documents.map((document) => (
+          <article key={document.id} className={styles.docPreview}>
+            <img
+              src="src/app/components/DocPreview/document.png"
+              className={styles.docIcon}
+            />
+            <h1>{document.title}</h1>
+          </article>
+        ))}
+    </section>
   );
 }
