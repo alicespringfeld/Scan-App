@@ -1,0 +1,10 @@
+.docPreview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  gap: 1rem;
+}
+
+.docIcon {
+  width: 6rem;
+}
