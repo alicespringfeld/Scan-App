@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import getDocument from './FetchDocuments';
+import React, { useState } from 'react';
+import SearchForm from '../../components/SearchComponent/SearchForm';
 import styles from './FileBrowser.module.css';
+import useDocuments from '../../utils/useDocuments';
 
-type Document = {
-  id: number;
-  title: string;
-  text: string;
-};
-
-export default function FileBrowser() {
-  const [documents, setDocuments] = useState<null | Document[]>(null);
-
-  useEffect(() => {
-    async function load() {
-      const newDocuments = await getDocument();
-      setDocuments(newDocuments);
-    }
-    load();
-  }, []);
+export default function FileBrowser(): JSX.Element {
+  const [search, setSearch] = useState('');
+  const documents = useDocuments(search);
 
   return (
     <section>
-      {documents &&
-        documents.map((document) => (
+      <SearchForm onSearch={setSearch} />
+      <div>
+        {!documents && <span>Loading...</span>}
+        {documents?.length === 0 && <span>No documents</span>}
+
+        {documents?.map((document) => (
           <article key={document.id} className={styles.docPreview}>
             <img
               src="src/app/components/DocPreview/document.png"
@@ -31,6 +23,7 @@ export default function FileBrowser() {
             <h1>{document.title}</h1>
           </article>
         ))}
+      </div>
     </section>
   );
 }
