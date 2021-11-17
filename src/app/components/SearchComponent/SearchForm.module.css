@@ -1,0 +1,15 @@
+.searchForm {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border-radius: var(--border-radius);
+  background-color: var(--color-secondary);
+  width: 20rem;
+}
+
+.inputField {
+  background-color: var(--color-secondary);
+}
+
+.searchIcon {
+  text-align: center;
+}

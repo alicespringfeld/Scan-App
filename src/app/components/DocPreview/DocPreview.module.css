@@ -1,0 +1,11 @@
+.docPreview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  height: 100%;
+  margin: 2rem;
+}
+
+.docIcon {
+  width: 6rem;
+}

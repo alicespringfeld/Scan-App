@@ -5,6 +5,7 @@ import PhotoCameraIcon from '../../components/ImageInput/PhotoCameraIcon';
 import Progress from '../../components/Progress/Progress';
 import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
 import useRecognizeText from '../../utils/useRecogniseText';
+import { Link } from 'react-router-dom';
 
 function Scan(): JSX.Element {
   const [imageURL, setImageURL] = useState<string | null>(null);
@@ -30,9 +31,10 @@ function Scan(): JSX.Element {
       {content}
 
       <div className={styles.container}>
-        <a href="#" className={styles.cancel}>
+        <Link to="/filebrowser" className={styles.cancel}>
           Cancel
-        </a>
+        </Link>
+
         {text && <AddDocumentForm text={text} />}
 
         {!text && progress && (
